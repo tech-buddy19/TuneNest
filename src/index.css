@@ -1,6 +1,63 @@
-.w-20{
-    width: 20%;
+.app-grid{
+    display: grid;
+    grid-template-columns: 240px 1fr 300px;
+    height: 100vh;
+    background-color: cornsilk;
+    color: aquamarine;
+    font-family: Arial, Helvetica, sans-serif;
 }
-.w-30{
-    width: 30%;
+.sidebar{
+
+background-color: #181818;
+padding: 20px;
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+.main-content{
+    background-color: #000000;
+    padding: 20px;
+    overflow-y: auto;
+}
+.player{
+    background-color: #222222;
+    padding: 20px;
+}
+.sidebar button{
+    border-radius: 8px;
+}
+.sidebar h2{
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.grid-song{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(160px,1fr));
+    gap: 20px;
+}
+.song-card{
+    background-color: #282828;
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.3s;
+}
+.song-card :hover{
+    background-color: #333;
+    transform: scale(1.03);
+}
+.song-card img{
+    width:100%;
+    border-radius: 8px;
+}
+.song-card h3{
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+.song-card p{
+    font-size: 0.8rem;
+    color: #b3b3b3;
+}
+.player{
+    background-color: #202020;
+    padding: 20px;
 }
