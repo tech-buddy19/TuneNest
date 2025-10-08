@@ -6,7 +6,7 @@ function Sidebar() {
         <h2>Your Library</h2>
         <button>Create Playlist</button>
         <button>Browse Podcasts</button>
-        <div style={{marginTop:"20px"}}>
+        <div className='quick'>
             <h4>Quickies</h4>
             <ul>
                 <li>Home</li>

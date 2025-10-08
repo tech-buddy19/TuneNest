@@ -1,63 +1,97 @@
-.app-grid{
-    display: grid;
-    grid-template-columns: 240px 1fr 300px;
-    height: 100vh;
-    background-color: cornsilk;
-    color: aquamarine;
-    font-family: Arial, Helvetica, sans-serif;
+.app-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr 300px;
+  height: 100vh;
+  background-color: cornsilk;
+  color: aquamarine;
+  font-family: Arial, Helvetica, sans-serif;
 }
-.sidebar{
+.sidebar {
+  background-color: #181818;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.quick{
+    margin-bottom: 20px;
+}
+.sidebar button {
+  border-radius: 8px;
+}
 
-background-color: #181818;
-padding: 20px;
-display: flex;
-flex-direction: column;
-gap: 20px;
+.sidebar h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
-.main-content{
-    background-color: #000000;
-    padding: 20px;
-    overflow-y: auto;
+
+
+.main-content {
+  background-color: #000000;
+  padding: 20px;
+  display: block;
+  overflow-y: auto;
 }
-.player{
-    background-color: #222222;
-    padding: 20px;
+
+
+.player {
+  background-color: #202020;
+  padding: 20px;
 }
-.sidebar button{
-    border-radius: 8px;
+
+.grid-song {
+  display: flex; 
+  flex-direction: row;
+  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 10px;
+  scroll-behavior: smooth;
+  width: 100%;
 }
-.sidebar h2{
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+
+
+.grid-song::-webkit-scrollbar {
+  height: 8px;
 }
-.grid-song{
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(160px,1fr));
-    gap: 20px;
+
+.grid-song::-webkit-scrollbar-thumb {
+  background: #1db954;
+  border-radius: 10px;
 }
-.song-card{
-    background-color: #282828;
-    border-radius: 10px;
-    padding: 10px;
-    transition: 0.3s;
+
+.song-card {
+  flex: 0 0 auto; 
+  width: 180px;
+  text-align: center;
+  color: white;
+  background-color: #1db954;
+  border-radius: 10px;
+  padding: 1rem;
+  transition: 0.3s;
+  border: 1px solid royalblue; 
 }
-.song-card :hover{
-    background-color: #333;
-    transform: scale(1.03);
+
+.song-card:hover {
+  background-color: #1ed760; 
+  transform: scale(1.05);
 }
-.song-card img{
-    width:100%;
-    border-radius: 8px;
+
+.song-card img {
+  width: 100%;
+  border-radius: 10px;
 }
-.song-card h3{
-    font-size: 0.9rem;
-    margin-top: 5px;
+
+.song-card h3 {
+  font-size: 0.9rem;
+  margin-top: 5px;
 }
-.song-card p{
-    font-size: 0.8rem;
-    color: #b3b3b3;
+
+.song-card p {
+  font-size: 0.8rem;
+  color: black;
 }
-.player{
-    background-color: #202020;
-    padding: 20px;
-}
+

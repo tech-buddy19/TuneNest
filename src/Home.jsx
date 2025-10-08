@@ -1,14 +1,21 @@
-import React from 'react'
-
+import React,{useEffect,useState} from 'react'
+import axios from 'axios'
+import Songcard from './Songcard'
 function Home() {
+  const[songs,setSongs]=useState([]);
+  useEffect(()=>{
+    axios.get("http://localhost:3000/songs").
+    then((res)=>setSongs(res.data)).
+    catch((err)=>console.error(err));
+  },[])
   return (
     <>
    <main className='main'>
     <h2>
       Trending Songs
     </h2>
-    <div className='grid-songs'>
-    
+    <div className='grid-song'>
+      {songs.map((song)=>(<Songcard key={song.id} song={song} />))}   
     </div>
    </main>
     </>

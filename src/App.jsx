@@ -15,7 +15,7 @@ function App() {
     
     <aside className='sidebar  '><Sidebar /></aside> 
      <main className='main-content '><Home /></main>
-     <section className='player '><Player /></section>
+     <section className='player'><Player /></section>
      </div>
     
   )

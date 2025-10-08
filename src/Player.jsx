@@ -2,8 +2,11 @@ import React from 'react'
 
 function Player() {
   return (
-    <div>Player</div>
-  )
+    <section className='players'>
+      <h2>Now Playing</h2>
+      <p>no songs selected</p>
+    </section>
+  );
 }
 
 export default Player
