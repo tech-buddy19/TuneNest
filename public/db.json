@@ -1,0 +1,77 @@
+{
+    "songs":[
+        {
+            "id":1,
+            "title":"Nee partha Vizhigal",
+            "artist":"Dhanush",
+            "cover":"./src/assets/Neepartha vizhi.jpg"
+            ,"likes":120
+        },{
+            "id":2,
+            "title":"Hukkum",
+            "artist":"Anirudh",
+            "cover":"./src/assets/Hukkum.jpg"
+            ,"likes":340
+        },{
+            "id":3,
+            "title":"Mahaan",
+            "artist":"Yuvan Shankar Raja",
+            "cover":"./src/assets/mahan.jpg"
+            ,"likes":300
+        },{
+            "id":4,
+            "title":"Vikram",
+            "artist":"Kamal Hassan",
+            "cover":"./src/assets/Vikram.jpg"
+            ,"likes":2300
+        },{
+            "id":5,
+            "title":"Jersey",
+            "artist":"Anirudh",
+            "cover":"./src/assets/marakavillay.jpg"
+            ,"likes":2320
+        },{
+            "id":6,
+            "title":"Ethirneechal",
+            "artist":"Anirudh",
+            "cover":"./src/assets/Ethirneechal.jpg",
+            "likes":2300
+        },{
+            "id":7,
+            "title":"Mastero",
+            "artist":"IllayaRaja",
+            "cover":"./src/assets/raja.jpg",
+            "likes":2300
+        },{
+            "id":8,
+            "title":"SuperStar",
+            "artist":"IllayaRaja",
+            "cover":"./src/assets/rajini.jpg",
+            "likes":2300
+        },{
+            "id":9,
+            "title":"Vaaranam Ayiram",
+            "artist":"Surya",
+            "cover":"./src/assets/adiye.jpg",
+            "likes":2300
+        },{
+            "id":10,
+            "title":"Attakathi",
+            "artist":"Santhosh Narayanan",
+            "cover":"./src/assets/attakathi.jpg",
+            "likes":2300
+        },{
+            "id":11,
+            "title":"Ayutha Eluthu",
+            "artist":"Surya",
+            "cover":"./src/assets/Aytha eluthu.jpg",
+            "likes":2300
+        },{
+            "id":12,
+            "title":"ENPT",
+            "artist":"Dhanush",
+            "cover":"./src/assets/maravathey manam.jpg",
+            "likes":2300
+        }
+    ]
+}

@@ -13,16 +13,28 @@
   flex-direction: column;
   gap: 20px;
 }
-.quick{
-    margin-bottom: 20px;
-}
 .sidebar button {
+  
   border-radius: 8px;
 }
-
+.song-info {
+  align-items: center;
+  row-gap: 3px;
+}
+.song-info :hover{
+color: black;
+display: inline;
+}
 .sidebar h2 {
+  
   font-size: 1.2rem;
   margin-bottom: 10px;
+}
+.quick{
+  padding-right: 6px;
+  position: relative;
+   position: absolute; 
+   bottom: 0;
 }
 
 

@@ -12,7 +12,7 @@ function Home() {
     <>
    <main className='main'>
     <h2>
-      Trending Songs
+      <i class="bi bi-arrow-up-right-square-fill"></i>Trending Songs
     </h2>
     <div className='grid-song'>
       {songs.map((song)=>(<Songcard key={song.id} song={song} />))}   
