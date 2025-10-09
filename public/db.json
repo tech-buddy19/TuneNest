@@ -5,73 +5,85 @@
             "title":"Nee partha Vizhigal",
             "artist":"Dhanush",
             "cover":"./src/assets/Neepartha vizhi.jpg"
-            ,"likes":120
-        },{
+            ,"likes":120,
+            "audio":"https://www.masstamilan.dev/downloader/9dLkA1rIYiHcYagIuLM7sQ/1759999821/d128_cdn/3239/MjAwMTo0ODYwOjc6NDA1OjpmMA=="
+                    },{
             "id":2,
             "title":"Hukkum",
             "artist":"Anirudh",
             "cover":"./src/assets/Hukkum.jpg"
-            ,"likes":340
+            ,"likes":340,
+            "audio":"https://www.masstamilan.dev/downloader/lL8qMcwExUxUW2r6qFx0SQ/1759995549/d128_cdn/24342/MjAwMTo0ODYwOjc6ODA1OjplYw=="
         },{
             "id":3,
             "title":"Mahaan",
             "artist":"Yuvan Shankar Raja",
             "cover":"./src/assets/mahan.jpg"
-            ,"likes":300
+            ,"likes":300,
+            "audio":"https://www.masstamilan.dev/downloader/luRO8IVZG-72CRvQphd7Dw/1759995574/d128_cdn/21926/MjQwNToyMDE6ZTAxNDo2MTg1Ojc0ODA6OTBlYzo5NzIwOmNjZjc="
         },{
             "id":4,
             "title":"Vikram",
             "artist":"Kamal Hassan",
             "cover":"./src/assets/Vikram.jpg"
-            ,"likes":2300
+            ,"likes":2300,
+            "audio":"https://www.masstamilan.dev/downloader/cXR2do2vh_bQyTy-9A6FTA/1759995648/d320_cdn/22195/MjQwMTo0OTAwOjkzZGE6YzQ4OjEwZTg6NThmZjpmZTI4OmJhNWM="
         },{
             "id":5,
             "title":"Jersey",
             "artist":"Anirudh",
             "cover":"./src/assets/marakavillay.jpg"
-            ,"likes":2320
+            ,"likes":2320,
+            "audio":"https://www.masstamilan.dev/downloader/fqqVav8LCB-vZzP3OBRQug/1759995773/d128_cdn/23976/MjAwMTo0ODYwOjc6YjA1OjplMQ=="
         },{
             "id":6,
             "title":"Ethirneechal",
             "artist":"Anirudh",
             "cover":"./src/assets/Ethirneechal.jpg",
-            "likes":2300
+            "likes":2300,
+            "audio":"https://www.masstamilan.dev/downloader/ZFBXb8MKVWVNs9wEeCytFg/1759995808/d128_cdn/7887/MjQwOTo0MDhkOjRlOWM6NGQ3YTo6ZDZjOTpmNTEy"
         },{
             "id":7,
             "title":"Mastero",
             "artist":"IllayaRaja",
             "cover":"./src/assets/raja.jpg",
-            "likes":2300
+            "likes":2300,
+            "audio":"https://www.masstamilan.dev/downloader/hN2A2prES09h8A1THh-fvQ/1759995976/d128_cdn/14667/MjQwMTo0OTAwOjI1OGY6MzQwMTplY2IxOjU4MDU6OWNlNDpkNDVk"
         },{
             "id":8,
             "title":"SuperStar",
             "artist":"IllayaRaja",
             "cover":"./src/assets/rajini.jpg",
-            "likes":2300
+            "likes":2300,
+            "audio":"https://www.masstamilan.dev/downloader/WVdqCTyn8-7IStZihmUsxQ/1759996087/d128_cdn/30898/MjQwMTo0OTAwOjI1OGY6MzQwMTplY2IxOjU4MDU6OWNlNDpkNDVk"
         },{
             "id":9,
             "title":"Vaaranam Ayiram",
             "artist":"Surya",
             "cover":"./src/assets/adiye.jpg",
-            "likes":2300
+            "likes":2300,
+            "audio":"https://www.masstamilan.dev/downloader/fCTJNXw1nFSf3vZ7UIKhRQ/1759996114/d128_cdn/17042/MjAwMTo0ODYwOjc6NTA1OjpjOA=="
         },{
             "id":10,
             "title":"Attakathi",
             "artist":"Santhosh Narayanan",
             "cover":"./src/assets/attakathi.jpg",
-            "likes":2300
+            "likes":2300,
+            "audio":"https://www.masstamilan.dev/downloader/wUiHm2jupM1rULsOBlT4TQ/1759996258/d128_cdn/9740/MjQwMTo0OTAwOjI1OGY6MzQwMTplY2IxOjU4MDU6OWNlNDpkNDVk"
         },{
             "id":11,
             "title":"Ayutha Eluthu",
             "artist":"Surya",
             "cover":"./src/assets/Aytha eluthu.jpg",
-            "likes":2300
+            "likes":2300,
+            "audio":"https://www.masstamilan.dev/downloader/G4quXzcceTzDJMm4Ie3_pQ/1759996322/d128_cdn/9942/MjQwMTo0OTAwOjI1OGY6MzQwMTplY2IxOjU4MDU6OWNlNDpkNDVk"
         },{
             "id":12,
             "title":"ENPT",
             "artist":"Dhanush",
             "cover":"./src/assets/maravathey manam.jpg",
-            "likes":2300
+            "likes":2300,
+            "audio":"https://www.masstamilan.dev/downloader/1ArJkjhxWBFHNdpUWaYMYQ/1759996364/d128_cdn/16459/MjQwMTo0OTAwOjI1OGY6MzQwMTplY2IxOjU4MDU6OWNlNDpkNDVk"
         }
     ]
 }

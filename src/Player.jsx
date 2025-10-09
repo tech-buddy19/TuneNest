@@ -1,12 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-function Player() {
+function Player({ currentSong }) {
   return (
-    <section className='players'>
-      <h2 className='d-flex align-items-center gap-2'><i class="bi bi-snow"></i>Now Playing</h2>
-      <p className='d-flex align-items-center gap-2'><i class="bi bi-music-note-beamed "></i>no songs selected</p>
+    <section className="player">
+      <h2>
+        <i className="bi bi-snow"></i> Now Playing
+      </h2>
+      <p>
+        <i className="bi bi-music-note-beamed"></i>
+        {currentSong ? ` ${currentSong.title} - ${currentSong.artist}` : ' No songs selected'}
+      </p>
     </section>
   );
 }
 
-export default Player
+export default Player;

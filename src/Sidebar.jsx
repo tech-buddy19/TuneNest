@@ -1,25 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react';
 
-function Sidebar() {
+function Sidebar({ playlists, onCreatePlaylist }) {
+  const [playlistName, setPlaylistName] = useState('');
+
+  const handleCreate = () => {
+    onCreatePlaylist(playlistName);
+    setPlaylistName('');
+  };
+
   return (
-    <>
-    <aside className='sidebar'>
-        <h2>Your Library</h2>
-        <button className='d-flex align-items-center gap-2'>
-          <i class="bi bi-plus-square-fill"></i>Create Playlist</button>
-        <button className='d-flex align-items-center gap-1'><i class="bi bi-browser-edge"></i>
-        Browse Podcasts</button>
-    </aside>
-    <div className='quick'>
-            <h4>Quickies</h4>
+    <div className="sidebar">
+      <div>Your Library</div>
+      <input
+        type="text"
+        placeholder="Playlist name"
+        value={playlistName}
+        onChange={e => setPlaylistName(e.target.value)}
+        style={{ marginBottom: '5px' }}
+      />
+      <button onClick={handleCreate}>Create Playlist</button>
+      <ul>
+        {playlists && playlists.map((playlist, idx) => (
+          <li key={idx}>
+            <b>{playlist.name}</b>
             <ul>
-                <button className='d-flex align-items-center gap-2'><i className="bi bi-house-heart-fill"></i>Home</button>
-                <button className='d-flex align-items-center gap-2'><i className="bi bi-search"></i>Search</button>
-                <button className='d-flex align-items-center gap-2'><i className="bi bi-heart-fill"></i>Liked Songs</button>
+              {playlist.songs.map(song => (
+                <li key={song.id}>{song.title} - {song.artist}</li>
+              ))}
             </ul>
-        </div>
-        </>
-  )
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
-export default Sidebar
+export default Sidebar;
