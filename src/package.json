@@ -1,0 +1,6 @@
+{"homepage": "https://tech-buddy19.github.io/TuneNest",
+"scripts": {
+  "predeploy": "npm run deploy",
+  "deploy": "gh-pages -d dist"
+}
+}
