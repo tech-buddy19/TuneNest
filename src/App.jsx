@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { collection, onSnapshot } from 'firebase/firestore';
-import { db } from './Firebase'; 
+import axios from 'axios';
 import Sidebar from './Sidebar';
 import Home from './Home';
 import Player from './Player';
@@ -12,35 +11,45 @@ function App() {
   const [playlists, setPlaylists] = useState([]);
   const audioRefs = useRef([]);
 
+  // Fetch songs and set up audio refs
   useEffect(() => {
-    // 🔥 Firestore realtime listener (replaces axios)
-    const unsubscribe = onSnapshot(collection(db, "songs"), (snapshot) => {
-      const songData = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setSongs(songData);
-      audioRefs.current = songData.map(() => React.createRef());
-    });
-
-    return () => unsubscribe(); // cleanup listener
+    axios.get('http://localhost:3000/songs')
+      .then((res) => {
+        setSongs(res.data);
+      })
+      .catch((err) => console.error(err));
   }, []);
 
+  // Set audio refs when songs change
+  useEffect(() => {
+    audioRefs.current = songs.map(() => React.createRef());
+  }, [songs]);
+
+  // Play / Pause handler
   const handlePlay = (index) => {
+    // Pause previously playing song
     if (currentSongIndex !== -1 && currentSongIndex !== index) {
-      audioRefs.current[currentSongIndex]?.current?.pause();
-      audioRefs.current[currentSongIndex].current.currentTime = 0;
+      const prevAudio = audioRefs.current[currentSongIndex]?.current;
+      if (prevAudio) {
+        prevAudio.pause();
+        prevAudio.currentTime = 0;
+      }
     }
+
+    const currAudio = audioRefs.current[index]?.current;
+    if (!currAudio) return;
+
     if (currentSongIndex === index && isPlaying) {
-      audioRefs.current[index]?.current?.pause();
+      currAudio.pause();
       setIsPlaying(false);
     } else {
-      audioRefs.current[index]?.current?.play();
+      currAudio.play();
       setIsPlaying(true);
       setCurrentSongIndex(index);
     }
   };
 
+  // Skip controls
   const handleSkipForward = () => {
     if (songs.length === 0) return;
     let nextIndex = (currentSongIndex + 1) % songs.length;
@@ -53,6 +62,7 @@ function App() {
     handlePlay(prevIndex);
   };
 
+  // Playlist creation
   const handleCreatePlaylist = (name) => {
     if (!name.trim()) return;
     setPlaylists([...playlists, { name, songs: [] }]);

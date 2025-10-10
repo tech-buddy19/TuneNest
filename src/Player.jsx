@@ -1,16 +1,33 @@
-import React from 'react';
+import React from "react";
 
 function Player({ currentSong }) {
+  if (!currentSong) {
+    return (
+      <div className="player">
+        <p>🎵 Select a song to play</p>
+      </div>
+    );
+  }
+
   return (
-    <section className="player">
-      <h2>
-        <i className="bi bi-snow"></i> Now Playing
-      </h2>
-      <p>
-        <i className="bi bi-music-note-beamed"></i>
-        {currentSong ? ` ${currentSong.title} - ${currentSong.artist}` : ' No songs selected'}
-      </p>
-    </section>
+    <div className="player">
+      <div className="player-info">
+        <img
+          src={currentSong.cover}
+          alt={currentSong.title}
+          width="80"
+          height="80"
+        />
+        <div>
+          <h4>{currentSong.title}</h4>
+          <p>{currentSong.artist}</p>
+        </div>
+      </div>
+
+      <div className="player-controls">
+        <p>Now Playing 🎶</p>
+      </div>
+    </div>
   );
 }
 

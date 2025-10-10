@@ -1,40 +1,31 @@
-import React from 'react';
-import Songcard from './Songcard';
+import React from "react";
 
-function Home({
-  songs,
-  currentSongIndex,
-  isPlaying,
-  audioRefs,
-  handlePlay,
-  handleSkipForward,
-  handleSkipBackward,
-  playlists,
-  onAddSongToPlaylist,
-}) {
+function Home({ songs, currentSongIndex, isPlaying, audioRefs, handlePlay, handleSkipForward, handleSkipBackward }) {
   return (
-    <main className="main-content">
-      <h2>
-        <i className="bi bi-arrow-up-right-square-fill"></i> Trending Songs
-      </h2>
-      <div className="grid-song">
-        {songs.length > 0 ? songs.map((song, index) => (
-          <Songcard
-            key={song.id}
-            song={song}
-            audioRef={audioRefs.current[index]}
-            isPlaying={isPlaying && currentSongIndex === index}
-            onPlay={() => handlePlay(index)}
-            onSkipForward={handleSkipForward}
-            onSkipBackward={handleSkipBackward}
-            playlists={playlists}
-            onAddSongToPlaylist={onAddSongToPlaylist}
-          />
-        )) : (
-          <p>No trending songs available.</p>
-        )}
+    <div className="home-container">
+      <h2 className="section-title">🎵 Trending Songs</h2>
+      <div className="song-grid">
+        {songs.map((song, index) => (
+          <div key={song.id} className="song-card">
+            <img src={song.cover} alt={song.title} className="song-image" />
+            <h3>{song.title}</h3>
+            <p>{song.artist}</p>
+            <div className="controls">
+              <button onClick={handleSkipBackward}>⏮️</button>
+              <button onClick={() => handlePlay(index)}>
+                {currentSongIndex === index && isPlaying ? "⏸️" : "▶️"}
+              </button>
+              <button onClick={handleSkipForward}>⏭️</button>
+            </div>
+            <audio
+              ref={audioRefs.current[index]}
+              src={song.audio}
+              preload="auto"
+            />
+          </div>
+        ))}
       </div>
-    </main>
+    </div>
   );
 }
 

@@ -1,107 +1,76 @@
-.app-grid {
-  display: grid;
-  grid-template-columns: 240px 1fr 300px;
-  height: 100vh;
-  background-color: cornsilk;
-  color: aquamarine;
-  font-family: Arial, Helvetica, sans-serif;
-}
 
-.sidebar {
-  background-color: #181818;
+.home-container {
+  display: block;
+  background-color: #000;
+  color: #80ffaa;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.sidebar button {
-  border-radius: 8px;
-}
-
-.song-info {
-  align-items: center;
-  row-gap: 3px;
-}
-
-.song-info:hover {
-  color: black;
-  display: inline;
-}
-
-.sidebar h2 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.quick {
-  padding-right: 6px;
-  position: absolute; /* Removed the conflicting relative */
-  bottom: 0;
-}
-
-.main-content {
-  background-color: #000000;
-  padding: 20px;
+  flex: 1;
   overflow-y: auto;
 }
 
-.player {
-  background-color: #202020;
-  padding: 20px;
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
 }
 
-.grid-song {
-  display: grid; /* removed flex duplicate */
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+.song-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 10px;
-  scroll-behavior: smooth;
-  width: 100%;
-}
-
-.grid-song::-webkit-scrollbar {
-  height: 8px;
-}
-
-.grid-song::-webkit-scrollbar-thumb {
-  background: #1db954;
-  border-radius: 10px;
 }
 
 .song-card {
-  width: 180px;
+  background: #20c96b;
+  border-radius: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  padding: 15px;
   text-align: center;
-  color: white;
-  background-color: #1db954;
-  border-radius: 10px;
-  padding: 1rem;
-  transition: 0.3s;
-  border: 1px solid royalblue;
-  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
-
 .song-card:hover {
-  background-color: #1ed760;
   transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  background-color:#20c96b; /* example: subtle color change */
 }
 
 .song-card img {
   width: 100%;
+  height: 220px;
   border-radius: 10px;
+  object-fit: cover;
 }
 
-.song-card h3 {
-  font-size: 0.9rem;
-  margin-top: 5px;
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
 }
-.progress-circle { transition: stroke-dashoffset 0.5s; }
-.like-btn { background: none; border: none; cursor: pointer; }
 
-
-.song-card p {
-  font-size: 0.8rem;
-  color: black;
+.controls button {
+  background: #fff;
+  border: none;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+}
+.sidebar{
+ display: block;
+ padding: auto;
+  background-color: #000;
+  color: #80ffaa;
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto; 
+}
+.player{
+  display: block;
+  background-color: #000;
+  color: #80ffaa;
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
 }

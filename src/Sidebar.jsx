@@ -1,36 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-function Sidebar({ playlists, onCreatePlaylist }) {
-  const [playlistName, setPlaylistName] = useState('');
+function Sidebar({ onCreatePlaylist, playlists }) {
+  const [playlistName, setPlaylistName] = useState("");
 
-  const handleCreate = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     onCreatePlaylist(playlistName);
-    setPlaylistName('');
+    setPlaylistName("");
   };
 
   return (
     <div className="sidebar">
-      <div>Your Library</div>
-      <input
-        type="text"
-        placeholder="Playlist name"
-        value={playlistName}
-        onChange={e => setPlaylistName(e.target.value)}
-        style={{ marginBottom: '5px' }}
-      />
-      <button onClick={handleCreate}>Create Playlist</button>
-      <ul>
-        {playlists && playlists.map((playlist, idx) => (
-          <li key={idx}>
-            <b>{playlist.name}</b>
-            <ul>
-              {playlist.songs.map(song => (
-                <li key={song.id}>{song.title} - {song.artist}</li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
+      <h2>🎧 TuneNest</h2>
+
+      <form onSubmit={handleSubmit} className="playlist-form">
+        <input
+          type="text"
+          placeholder="New Playlist"
+          value={playlistName}
+          onChange={(e) => setPlaylistName(e.target.value)}
+        />
+        <button type="submit">➕</button>
+      </form>
+
+      <div className="playlist-section">
+        <h4>My Playlists</h4>
+        {playlists.length === 0 ? (
+          <p>No playlists yet</p>
+        ) : (
+          <ul>
+            {playlists.map((pl, idx) => (
+              <li key={idx}>🎵 {pl.name}</li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }
