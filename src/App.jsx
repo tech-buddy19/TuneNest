@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import axios from 'axios';
+import { collection, onSnapshot } from 'firebase/firestore';
+import { db } from './Firebase'; 
 import Sidebar from './Sidebar';
 import Home from './Home';
 import Player from './Player';
@@ -12,18 +13,23 @@ function App() {
   const audioRefs = useRef([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/songs')
-      .then((res) => {
-        setSongs(res.data);
-        audioRefs.current = res.data.map(() => React.createRef());
-      })
-      .catch((err) => console.error(err));
+    // 🔥 Firestore realtime listener (replaces axios)
+    const unsubscribe = onSnapshot(collection(db, "songs"), (snapshot) => {
+      const songData = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setSongs(songData);
+      audioRefs.current = songData.map(() => React.createRef());
+    });
+
+    return () => unsubscribe(); // cleanup listener
   }, []);
 
   const handlePlay = (index) => {
     if (currentSongIndex !== -1 && currentSongIndex !== index) {
       audioRefs.current[currentSongIndex]?.current?.pause();
-      audioRefs.current[currentSongIndex]?.current && (audioRefs.current[currentSongIndex].current.currentTime = 0);
+      audioRefs.current[currentSongIndex].current.currentTime = 0;
     }
     if (currentSongIndex === index && isPlaying) {
       audioRefs.current[index]?.current?.pause();
@@ -47,7 +53,6 @@ function App() {
     handlePlay(prevIndex);
   };
 
-  // Playlist creation
   const handleCreatePlaylist = (name) => {
     if (!name.trim()) return;
     setPlaylists([...playlists, { name, songs: [] }]);

@@ -1,8 +1,5 @@
 import React, { useState, useRef } from 'react';
 
-// Add this style block to your CSS or a CSS-in-JS solution:
-// .progress-circle { transition: stroke-dashoffset 0.5s; }
-// .like-btn { background: none; border: none; cursor: pointer; }
 
 function Songcard({
   song,
@@ -20,7 +17,7 @@ function Songcard({
     onPlay();
   };
 
-  // Progress update for circular ring
+  
   const onTimeUpdate = (e) => {
     const audio = e.target;
     const percent = audio.currentTime / audio.duration;
