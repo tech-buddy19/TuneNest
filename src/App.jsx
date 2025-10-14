@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { supabase } from "./SupabaseClient"; // Ensure this uses VITE_ env vars
+import { supabase } from "./SupabaseClient";
 import Sidebar from "./Sidebar";
 import Home from "./Home";
 import Player from "./Player";
@@ -11,7 +11,7 @@ function App() {
   const [playlists, setPlaylists] = useState([]);
   const audioRefs = useRef([]);
 
-  // ✅ Fetch songs from Supabase on mount
+  //  Fetch songs from Supabase on mount
   useEffect(() => {
     async function fetchSongs() {
       const { data, error } = await supabase.from("songs").select("*");
@@ -20,13 +20,13 @@ function App() {
         console.error("Supabase error:", error);
       } else {
         console.log("Fetched songs:", data);
-        setSongs(data); // ✅ Set the fetched songs into state
+        setSongs(data); // Set the fetched songs into state
       }
     }
     fetchSongs();
   }, []);
 
-  // ✅ Update audio refs when songs change
+  //  Update audio refs when songs change
   useEffect(() => {
     audioRefs.current = songs.map(() => React.createRef());
   }, [songs]);

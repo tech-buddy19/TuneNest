@@ -74,3 +74,27 @@
   flex: 1;
   overflow-y: auto;
 }
+audio {
+  width: 210px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: sepia(100%) saturate(300%) brightness(70%) hue-rotate(180deg);
+ 
+}
+
+
+audio::-webkit-media-controls-panel {
+  background-color: #2ebd59;
+}
+
+audio::-webkit-media-controls-play-button {
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+  color: #fff;
+}

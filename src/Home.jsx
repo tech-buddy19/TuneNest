@@ -25,15 +25,9 @@ function Home({
               <h3>{song.title}</h3>
               <p>{song.artist}</p>
               
-              <div className="controls">
-                <button onClick={handleSkipBackward}>⏮️</button>
-                <button onClick={() => handlePlay(index)}>
-                  {currentSongIndex === index && isPlaying ? "⏸️" : "▶️"}
-                </button>
-                <button onClick={handleSkipForward}>⏭️</button>
-              </div>
               
-              <audio
+              
+              <audio 
                 ref={audioRefs.current[index]}
                 src={song.audio_url}
                 preload="auto"
