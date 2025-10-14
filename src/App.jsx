@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
-import axios from 'axios';
-import Sidebar from './Sidebar';
-import Home from './Home';
-import Player from './Player';
+import React, { useEffect, useState, useRef } from "react";
+import { supabase } from "./SupabaseClient"; // Ensure this uses VITE_ env vars
+import Sidebar from "./Sidebar";
+import Home from "./Home";
+import Player from "./Player";
 
 function App() {
   const [songs, setSongs] = useState([]);
@@ -11,23 +11,28 @@ function App() {
   const [playlists, setPlaylists] = useState([]);
   const audioRefs = useRef([]);
 
-  // Fetch songs and set up audio refs
+  // ✅ Fetch songs from Supabase on mount
   useEffect(() => {
-    axios.get('http://localhost:3000/songs')
-      .then((res) => {
-        setSongs(res.data);
-      })
-      .catch((err) => console.error(err));
+    async function fetchSongs() {
+      const { data, error } = await supabase.from("songs").select("*");
+
+      if (error) {
+        console.error("Supabase error:", error);
+      } else {
+        console.log("Fetched songs:", data);
+        setSongs(data); // ✅ Set the fetched songs into state
+      }
+    }
+    fetchSongs();
   }, []);
 
-  // Set audio refs when songs change
+  // ✅ Update audio refs when songs change
   useEffect(() => {
     audioRefs.current = songs.map(() => React.createRef());
   }, [songs]);
 
-  // Play / Pause handler
   const handlePlay = (index) => {
-    // Pause previously playing song
+    // Pause previous audio if playing something else
     if (currentSongIndex !== -1 && currentSongIndex !== index) {
       const prevAudio = audioRefs.current[currentSongIndex]?.current;
       if (prevAudio) {
@@ -49,7 +54,6 @@ function App() {
     }
   };
 
-  // Skip controls
   const handleSkipForward = () => {
     if (songs.length === 0) return;
     let nextIndex = (currentSongIndex + 1) % songs.length;
@@ -62,7 +66,6 @@ function App() {
     handlePlay(prevIndex);
   };
 
-  // Playlist creation
   const handleCreatePlaylist = (name) => {
     if (!name.trim()) return;
     setPlaylists([...playlists, { name, songs: [] }]);
@@ -70,7 +73,7 @@ function App() {
 
   return (
     <div className="app-grid">
-      <Sidebar 
+      <Sidebar
         onCreatePlaylist={handleCreatePlaylist}
         playlists={playlists}
       />
